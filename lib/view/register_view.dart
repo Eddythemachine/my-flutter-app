@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_application_1/firebase_options.dart';
 import 'package:flutter_application_1/main.dart';
 
 class RegisterView extends StatefulWidget {
@@ -100,7 +103,6 @@ class _RegisterViewState extends State<RegisterView> {
             case ConnectionState.none:
             case ConnectionState.waiting:
             case ConnectionState.active:
-            default:
               return const Center(child: CircularProgressIndicator());
           }
         },
