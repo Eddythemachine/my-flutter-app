@@ -1,0 +1,60 @@
+flutter/ephemeral/
+
+# Visual Studio user-specific files.
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio build-related files.
+x64/
+x86/
+
+# Visual Studio cache files
+# files ending in .cache can be ignored
+*.[Cc]ache
+# but keep track of directories ending in .cache
+!*.[Cc]ache/
+
+
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .dart_tool directory contains build artifacts and utilities.
+.dart_tool/
+
+# The build directory contains build outputs.
+build/
+
+# Flutter/Dart/Pub related
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Android/iOS specific build outputs and pods
+android/app/debug
+android/app/profile
+android/app/release
+ios/Flutter/App.framework
+ios/Flutter/Flutter.framework
+ios/Flutter/Generated.xcconfig
+ios/Pods/
+ios/Runner/Generated.xcconfig
+
+# Signing files (Crucial for security)
+android/key.properties
+android/**/*.jks
+android/**/*.keystore
