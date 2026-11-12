@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_application_1/constants/routes.dart';
+import 'package:flutter_application_1/notes/note.dart';
 import 'package:flutter_application_1/view/login_view.dart';
 import 'package:flutter_application_1/view/register_view.dart';
 import 'package:flutter_application_1/view/verify_email_view.dart';
@@ -22,22 +24,27 @@ void main() async {
         ),
         useMaterial3: true,
       ),
-      initialRoute: '/home/',
+      initialRoute: loginRoute,
       onGenerateRoute: (settings) {
         Widget page;
         switch (settings.name) {
-          case '/login/':
+          case loginRoute:
             page = const LoginView();
             break;
-          case '/register/':
+          case registerRoute:
             page = const RegisterView();
             break;
-          case '/verify-email/':
+          case verifyEmailRoute:
             page = const VerifyEmailView();
             break;
-          case '/home/':
+          case homeRoute:
             page = const HomePage();
             break;
+
+          case notesRoute:
+            page = const NotesView();
+            break;
+
           default:
             page = const LoginView();
         }
@@ -119,7 +126,7 @@ class HomePage extends StatelessWidget {
                 width: double.infinity,
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.92),
+                  color: Colors.white.withValues(alpha: 0.92),
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: const [
                     BoxShadow(
@@ -132,19 +139,17 @@ class HomePage extends StatelessWidget {
                 child: Column(
                   children: [
                     Icon(
-                      user != null && user.emailVerified
+                      user.emailVerified
                           ? Icons.check_circle_outline
                           : Icons.warning_amber_rounded,
                       size: 48,
-                      color: user != null && user.emailVerified
+                      color: user.emailVerified
                           ? const Color(0xFF134E5E)
                           : Colors.orangeAccent,
                     ),
                     const SizedBox(height: 12),
                     Text(
-                      user == null
-                          ? "No user logged in"
-                          : user.emailVerified
+                      user.emailVerified
                           ? "User is verified ✅"
                           : "You need to verify your email ❌",
                       style: const TextStyle(
